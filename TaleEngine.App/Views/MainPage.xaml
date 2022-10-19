@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:model="clr-namespace:TaleEngine.App.Models"
+             xmlns:viewmodel="clr-namespace:TaleEngine.App.ViewModels"
+             x:DataType="viewmodel:TalkViewModel"
+             x:Class="TaleEngine.App.Views.MainPage">
+
+    <Grid
+        ColumnDefinitions="*,*"
+        ColumnSpacing="5"
+        RowDefinitions="*,Auto"
+        RowSpacing="0">
+
+        <CollectionView
+            Grid.ColumnSpan="2"
+            ItemsSource="{Binding Talks}"
+            SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:Talk">
+                    <Grid Padding="10">
+                        <Frame HeightRequest="125"
+                               Padding="0"
+                               Style="{StaticResource CardView}">
+                            <Grid Padding="0"
+                                  ColumnDefinitions="125, *">
+                                <Image Aspect="AspectFill"
+                                       Source="{Binding Image}"
+                                       WidthRequest="125"
+                                       HeightRequest="125">
+                                    <!--<Image.GestureRecognizers>
+                                        <TapGestureRecognizer CommandParameter="{Binding .}"
+                                                      Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:TeamViewModel}}, Path=GoToDetailsCommand}" />
+                                    </Image.GestureRecognizers>-->
+                                </Image>
+                                <VerticalStackLayout Grid.Column="1"
+                                                     Padding="10"
+                                                     VerticalOptions="Center">
+                                    <Label FontSize="25" >
+                                        <Label.Text>
+                                            <MultiBinding StringFormat="{}{0} ({1} plazas)"> 
+                                                <Binding Path="Title"/>
+                                                <Binding Path="Places"/>
+                                            </MultiBinding>
+                                         </Label.Text>
+                                    </Label>
+                                    <Label FontSize="15" >
+                                        <Label.Text>
+                                            <MultiBinding StringFormat="{}Tema: {0}">
+                                                <Binding Path="Topic"/>
+                                            </MultiBinding>
+                                        </Label.Text>
+                                    </Label>
+                                    <Label FontSize="15" >
+                                        <Label.Text>
+                                            <MultiBinding StringFormat="{}Tipo: {0}">
+                                                <Binding Path="Type"/>
+                                            </MultiBinding>
+                                        </Label.Text>
+                                    </Label>
+                                </VerticalStackLayout>
+                            </Grid>
+                        </Frame>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <Button Text="Get data"
+                Style="{StaticResource ButtonOutline}"
+                Command="{Binding GetTalksCommand}"
+                IsEnabled="{Binding IsNotBusy}"
+                Grid.Row="1"
+                Margin="8" />
+        <ActivityIndicator IsVisible="{Binding IsBusy}"
+                           IsRunning="{Binding IsBusy}"
+                           HorizontalOptions="FillAndExpand"
+                           VerticalOptions="FillAndExpand"
+                           Grid.RowSpan="2"
+                           Grid.ColumnSpan="2" />
+    </Grid>
+</ContentPage>
