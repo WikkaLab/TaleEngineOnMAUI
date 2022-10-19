@@ -6,7 +6,7 @@ namespace TaleEngine.App.Services
     {
         public static Speaker Speaker1 => new()
         {
-            Name = "Ashlyn Spencer",
+            Name = "JM L",
             Tagline = "Developer + speaker",
             Bio = "doing some talks about tech stuff!",
             Image = "https://pic.onlinewebfonts.com/svg/img_24787.png"
@@ -14,7 +14,7 @@ namespace TaleEngine.App.Services
 
         public static Speaker Speaker2 => new()
         {
-            Name = "Damon Rosembaum",
+            Name = "Marco A.B.",
             Tagline = "Developer + speaker",
             Bio = "doing some talks about tech stuff!",
             Image = "https://pic.onlinewebfonts.com/svg/img_24787.png"
@@ -22,7 +22,7 @@ namespace TaleEngine.App.Services
 
         public static Speaker Speaker3 => new()
         {
-            Name = "Jannie Bernhard",
+            Name = "Elena G",
             Tagline = "Developer + speaker",
             Bio = "doing some talks about tech stuff!",
             Image = "https://pic.onlinewebfonts.com/svg/img_24787.png"

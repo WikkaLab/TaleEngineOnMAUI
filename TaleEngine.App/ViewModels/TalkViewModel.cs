@@ -15,11 +15,10 @@ namespace TaleEngine.App.ViewModels
         {
             _service = new EventService();
             Title = "Talks in MonkeyConf";
+            GetTalks();
         }
 
-        // TODO: Commands
-        [RelayCommand]
-        async Task GetTalks()
+        void GetTalks()
         {
             if (IsBusy) return;
 
@@ -41,8 +40,8 @@ namespace TaleEngine.App.ViewModels
             catch (Exception ex)
             {
                 Debug.WriteLine(ex);
-                await Shell.Current.DisplayAlert("Error",
-                    "Something wrong happened on getting teams!",
+                Shell.Current.DisplayAlert("Error",
+                    "Something wrong happened on getting speakers!",
                     "OK :(");
             }
             finally

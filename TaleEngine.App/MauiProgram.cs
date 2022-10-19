@@ -18,9 +18,13 @@ public static class MauiProgram
 
         // View models
         builder.Services.AddSingleton<TalkViewModel>();
+        builder.Services.AddSingleton<SpeakerViewModel>();
+        builder.Services.AddSingleton<RoomViewModel>();
 
-        // Views
+		// Views
         builder.Services.AddSingleton<MainPage>();
+        builder.Services.AddSingleton<SpeakersPage>();
+        builder.Services.AddSingleton<RoomsPage>();
 
         return builder.Build();
 	}

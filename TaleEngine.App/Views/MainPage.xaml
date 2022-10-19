@@ -4,7 +4,8 @@
              xmlns:model="clr-namespace:TaleEngine.App.Models"
              xmlns:viewmodel="clr-namespace:TaleEngine.App.ViewModels"
              x:DataType="viewmodel:TalkViewModel"
-             x:Class="TaleEngine.App.Views.MainPage">
+             x:Class="TaleEngine.App.Views.MainPage"
+             Title="{Binding Title}">
 
     <Grid
         ColumnDefinitions="*,*"
@@ -19,7 +20,7 @@
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="model:Talk">
                     <Grid Padding="10">
-                        <Frame HeightRequest="125"
+                        <Frame HeightRequest="180"
                                Padding="0"
                                Style="{StaticResource CardView}">
                             <Grid Padding="0"
@@ -36,14 +37,7 @@
                                 <VerticalStackLayout Grid.Column="1"
                                                      Padding="10"
                                                      VerticalOptions="Center">
-                                    <Label FontSize="25" >
-                                        <Label.Text>
-                                            <MultiBinding StringFormat="{}{0} ({1} plazas)"> 
-                                                <Binding Path="Title"/>
-                                                <Binding Path="Places"/>
-                                            </MultiBinding>
-                                         </Label.Text>
-                                    </Label>
+                                    <Label Text="{Binding Title}" FontSize="25"/>
                                     <Label FontSize="15" >
                                         <Label.Text>
                                             <MultiBinding StringFormat="{}Tema: {0}">
@@ -53,11 +47,27 @@
                                     </Label>
                                     <Label FontSize="15" >
                                         <Label.Text>
-                                            <MultiBinding StringFormat="{}Tipo: {0}">
+                                            <MultiBinding StringFormat="{}Tipo: {0} ({1} plazas)">
                                                 <Binding Path="Type"/>
+                                                <Binding Path="Places"/>
                                             </MultiBinding>
                                         </Label.Text>
                                     </Label>
+                                    <CollectionView ItemsSource="{Binding Speakers}"
+                                                    SelectionMode="None">
+                                        <CollectionView.ItemTemplate>
+                                            <DataTemplate x:DataType="model:Speaker">
+                                                <HorizontalStackLayout>
+                                                    <Border StrokeShape="RoundRectangle 10 40 30 1">
+                                                        <Label Text="{Binding Name}"
+                                                               FontSize="10"
+                                                               Margin="5"
+                                                               Padding="2"/>
+                                                    </Border>
+                                                </HorizontalStackLayout>
+                                            </DataTemplate>
+                                        </CollectionView.ItemTemplate>
+                                    </CollectionView>
                                 </VerticalStackLayout>
                             </Grid>
                         </Frame>
@@ -65,12 +75,6 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-        <Button Text="Get data"
-                Style="{StaticResource ButtonOutline}"
-                Command="{Binding GetTalksCommand}"
-                IsEnabled="{Binding IsNotBusy}"
-                Grid.Row="1"
-                Margin="8" />
         <ActivityIndicator IsVisible="{Binding IsBusy}"
                            IsRunning="{Binding IsBusy}"
                            HorizontalOptions="FillAndExpand"
