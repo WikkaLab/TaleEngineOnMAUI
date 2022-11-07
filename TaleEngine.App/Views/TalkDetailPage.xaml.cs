@@ -2,9 +2,9 @@ using TaleEngine.App.ViewModels;
 
 namespace TaleEngine.App.Views;
 
-public partial class SpeakersPage : ContentPage
+public partial class TalkDetailPage : ContentPage
 {
-    public SpeakersPage(SpeakerViewModel viewModel)
+    public TalkDetailPage(TalkDetailViewModel viewModel)
     {
         InitializeComponent();
         BindingContext = viewModel;

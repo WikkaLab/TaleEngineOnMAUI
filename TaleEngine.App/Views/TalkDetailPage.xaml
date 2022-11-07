@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:TaleEngine.App.ViewModels" xmlns:model="clr-namespace:TaleEngine.App.Models"
+             x:DataType="viewmodel:TalkDetailViewModel"
+             x:Class="TaleEngine.App.Views.TalkDetailPage"
+             Title="{Binding Talk.Type}">
+    <ScrollView>
+        <VerticalStackLayout>
+            <Grid ColumnDefinitions="*, Auto, *"
+              RowDefinitions="160, Auto">
+                <BoxView BackgroundColor="{StaticResource Primary}"
+                     Grid.ColumnSpan="3"
+                     HeightRequest="160"
+                     HorizontalOptions="FillAndExpand"/>
+                <Frame Grid.RowSpan="2"
+                   Grid.Column="1"
+                   HeightRequest="160"
+                   WidthRequest="160"
+                   CornerRadius="80"
+                   HorizontalOptions="Center"
+                   IsClippedToBounds="True"
+                   Padding="0"
+                   Margin="0,80,0,0">
+                    <Image Aspect="AspectFill"
+                       HeightRequest="160"
+                       WidthRequest="160"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       Source="{Binding Talk.Image}"/>
+                </Frame>
+            </Grid>
+            <VerticalStackLayout Padding="10"
+                                 Spacing="10">
+                <Label Text="{Binding Talk.Title}" FontSize="25"/>
+                <Label Text="{Binding Talk.Description}" FontSize="20"/>
+                <Label FontSize="15" >
+                    <Label.Text>
+                        <MultiBinding StringFormat="{}Tema: {0}">
+                            <Binding Path="Talk.Topic"/>
+                        </MultiBinding>
+                    </Label.Text>
+                </Label>
+                <Label FontSize="15" >
+                    <Label.Text>
+                        <MultiBinding StringFormat="{}Tipo: {0} ({1} plazas)">
+                            <Binding Path="Talk.Type"/>
+                            <Binding Path="Talk.Places"/>
+                        </MultiBinding>
+                    </Label.Text>
+                </Label>
+                <Label Text="Speaker(s):"/>
+                <CollectionView ItemsSource="{Binding Talk.Speakers}"
+                                                    SelectionMode="None">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="model:Speaker">
+                            <HorizontalStackLayout>
+                                <Border StrokeShape="RoundRectangle 10 40 30 1">
+                                    <Label Text="{Binding Name}"
+                                                               FontSize="10"
+                                                               Margin="5"
+                                                               Padding="2"/>
+                                </Border>
+                            </HorizontalStackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+                <Label FontSize="15" >
+                    <Label.Text>
+                        <MultiBinding StringFormat="{}Where? {0}">
+                            <Binding Path="Talk.Room.Name"/>
+                        </MultiBinding>
+                    </Label.Text>
+                </Label>
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+
+    </ScrollView>
+</ContentPage>

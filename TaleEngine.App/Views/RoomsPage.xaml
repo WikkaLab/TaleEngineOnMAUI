@@ -6,31 +6,32 @@
              x:DataType="viewmodel:RoomViewModel"
              x:Class="TaleEngine.App.Views.RoomsPage"
              Title="{Binding Title}">
-    <Grid
-        ColumnDefinitions="*,*"
-        ColumnSpacing="5"
-        RowDefinitions="*,Auto"
-        RowSpacing="0">
-        <CollectionView
-            Grid.ColumnSpan="2"
+    <CollectionView
             ItemsSource="{Binding Rooms}"
             SelectionMode="None">
-            <CollectionView.ItemTemplate>
-                <DataTemplate x:DataType="model:Room">
-                    <VerticalStackLayout Grid.Column="1"
-                                         Padding="10"
-                                         VerticalOptions="Center">
-                        <Label Text="{Binding Name}"
-                               FontSize="25" />
-                    </VerticalStackLayout>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-        <ActivityIndicator IsVisible="{Binding IsBusy}"
-                           IsRunning="{Binding IsBusy}"
-                           HorizontalOptions="FillAndExpand"
-                           VerticalOptions="FillAndExpand"
-                           Grid.RowSpan="2"
-                           Grid.ColumnSpan="2" />
-    </Grid>
+        <CollectionView.ItemTemplate>
+            <DataTemplate x:DataType="model:Room">
+                <Grid Padding="10">
+                    <Frame HeightRequest="150"
+                               Padding="0"
+                               Style="{StaticResource CardView}">
+                        <Grid Padding="0"
+                                  ColumnDefinitions="125, *">
+                            <Image Aspect="AspectFill"
+                                       Source="{Binding Image}"
+                                       WidthRequest="125"
+                                       HeightRequest="125">
+                            </Image>
+                            <VerticalStackLayout Grid.Column="1"
+                                                     Padding="10"
+                                                     VerticalOptions="Center">
+                                <Label Text="{Binding Name}"
+                                       FontSize="25" />
+                            </VerticalStackLayout>
+                        </Grid>
+                    </Frame>
+                </Grid>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
 </ContentPage>

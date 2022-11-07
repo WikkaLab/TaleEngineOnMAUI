@@ -4,11 +4,40 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:views="clr-namespace:TaleEngine.App.Views"
+    xmlns:sys="clr-namespace:System;assembly=netstandard"
     Shell.FlyoutBehavior="Flyout">
+
+    <Shell.FlyoutHeaderTemplate>
+        <DataTemplate>
+            <Grid BackgroundColor="Black"
+                  HeightRequest="200">
+                <Image Aspect="AspectFill"
+                       Source="https://th.bing.com/th/id/OIP.Jn4y4xay6dT_kyKmyof_ZQHaEK"
+                       Opacity="0.6" />
+                <Label Text="Surfing with MAUI"
+                       TextColor="White"
+                       FontAttributes="Bold"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center" />
+            </Grid>
+        </DataTemplate>
+    </Shell.FlyoutHeaderTemplate>
+    <Shell.FlyoutFooter>
+        <StackLayout BackgroundColor="Black">
+            <Label Text="Made with ☕ by Elena.NET"
+               TextColor="GhostWhite"
+               FontAttributes="Bold"
+               HorizontalOptions="Center" />
+            <Label Text="{Binding Source={x:Static sys:DateTime.Now}, StringFormat='{0:MMMM dd, yyyy}'}"
+               TextColor="GhostWhite"
+               HorizontalOptions="Center" />
+        </StackLayout>
+    </Shell.FlyoutFooter>
 
     <FlyoutItem Title="Talks">
         <Tab>
-            <ShellContent ContentTemplate="{DataTemplate views:MainPage}" />
+            <ShellContent ContentTemplate="{DataTemplate views:MainPage}"
+                          Icon="bullhorn.png"/>
         </Tab>
     </FlyoutItem>
     <FlyoutItem Title="Speakers">
@@ -19,6 +48,11 @@
     <FlyoutItem Title="Rooms">
         <Tab>
             <ShellContent ContentTemplate="{DataTemplate views:RoomsPage}" />
+        </Tab>
+    </FlyoutItem>
+    <FlyoutItem Title="Other">
+        <Tab>
+            <ShellContent ContentTemplate="{DataTemplate views:OthersPage}" />
         </Tab>
     </FlyoutItem>
 </Shell>

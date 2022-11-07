@@ -16,16 +16,23 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			});
 
-        // View models
-        builder.Services.AddSingleton<TalkViewModel>();
-        builder.Services.AddSingleton<SpeakerViewModel>();
-        builder.Services.AddSingleton<RoomViewModel>();
+		// Services and APIs
+		builder.Services.AddSingleton(Connectivity.Current);
+
+		// View models
+		builder.Services.AddSingleton<TalkViewModel>();
+		builder.Services.AddSingleton<TalkDetailViewModel>();
+		builder.Services.AddSingleton<SpeakerViewModel>();
+		builder.Services.AddSingleton<RoomViewModel>();
+		builder.Services.AddSingleton<OtherViewModel>();
 
 		// Views
-        builder.Services.AddSingleton<MainPage>();
-        builder.Services.AddSingleton<SpeakersPage>();
-        builder.Services.AddSingleton<RoomsPage>();
+		builder.Services.AddSingleton<MainPage>();
+		builder.Services.AddSingleton<TalkDetailPage>();
+		builder.Services.AddSingleton<SpeakersPage>();
+		builder.Services.AddSingleton<RoomsPage>();
+		builder.Services.AddSingleton<OthersPage>();
 
-        return builder.Build();
+		return builder.Build();
 	}
 }

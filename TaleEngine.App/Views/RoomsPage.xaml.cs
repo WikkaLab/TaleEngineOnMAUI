@@ -4,9 +4,9 @@ namespace TaleEngine.App.Views;
 
 public partial class RoomsPage : ContentPage
 {
-	public RoomsPage(RoomViewModel viewModel)
-	{
-		InitializeComponent();
-		BindingContext = viewModel;
-	}
+    public RoomsPage(RoomViewModel viewModel)
+    {
+        InitializeComponent();
+        BindingContext = viewModel;
+    }
 }

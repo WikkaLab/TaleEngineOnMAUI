@@ -53,19 +53,31 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Views\OthersPage.xaml.cs">
+	    <DependentUpon>OthersPage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\RoomsPage.xaml.cs">
 	    <DependentUpon>RoomsPage.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="Views\SpeakersPage.xaml.cs">
 	    <DependentUpon>SpeakersPage.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="Views\TalkDetailPage.xaml.cs">
+	    <DependentUpon>TalkDetailPage.xaml</DependentUpon>
+	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Views\OthersPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\RoomsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\SpeakersPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\TalkDetailPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

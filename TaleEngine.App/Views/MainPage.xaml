@@ -29,10 +29,10 @@
                                        Source="{Binding Image}"
                                        WidthRequest="125"
                                        HeightRequest="125">
-                                    <!--<Image.GestureRecognizers>
+                                    <Image.GestureRecognizers>
                                         <TapGestureRecognizer CommandParameter="{Binding .}"
-                                                      Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:TeamViewModel}}, Path=GoToDetailsCommand}" />
-                                    </Image.GestureRecognizers>-->
+                                                      Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:TalkViewModel}}, Path=GoToDetailsCommand}" />
+                                    </Image.GestureRecognizers>
                                 </Image>
                                 <VerticalStackLayout Grid.Column="1"
                                                      Padding="10"

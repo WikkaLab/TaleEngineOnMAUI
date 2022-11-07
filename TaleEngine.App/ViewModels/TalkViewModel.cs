@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using TaleEngine.App.Models;
 using TaleEngine.App.Services;
+using TaleEngine.App.Views;
 
 namespace TaleEngine.App.ViewModels
 {
@@ -14,7 +15,7 @@ namespace TaleEngine.App.ViewModels
         public TalkViewModel()
         {
             _service = new EventService();
-            Title = "Talks in MonkeyConf";
+            Title = "Talks in dotnetmalaga 2022";
             GetTalks();
         }
 
@@ -50,19 +51,16 @@ namespace TaleEngine.App.ViewModels
             }
         }
 
-        //[RelayCommand]
-        //async Task GoToDetailsAsync(Talk talk)
-        //{
-        //    if (talk is null) return;
+        [RelayCommand]
+        async Task GoToDetailsAsync(Talk talk)
+        {
+            if (talk is null) return;
 
-        //    // Method 1
-        //    //await Shell.Current.GoToAsync($"{nameof(DetailsPage)}?id={team.Name}");
-        //    // Method 2, James Montemagno approves! 👍
-        //    await Shell.Current.GoToAsync($"{nameof(DetailsPage)}", true,
-        //        new Dictionary<string, object>
-        //        {
-        //            {nameof(Team), talk}
-        //        });
-        //}
+            await Shell.Current.GoToAsync($"{nameof(TalkDetailPage)}", true,
+                new Dictionary<string, object>
+                {
+                    {"Talk", talk}
+                });
+        }
     }
 }

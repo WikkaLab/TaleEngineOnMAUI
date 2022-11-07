@@ -4,9 +4,9 @@ namespace TaleEngine.App.Views;
 
 public partial class MainPage : ContentPage
 {
-	public MainPage(TalkViewModel viewModel)
-	{
-		InitializeComponent();
+    public MainPage(TalkViewModel viewModel)
+    {
+        InitializeComponent();
         BindingContext = viewModel;
     }
 }
