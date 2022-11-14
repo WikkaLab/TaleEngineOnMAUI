@@ -26,8 +26,8 @@
                                   ColumnDefinitions="125, *">
                                 <Image Aspect="AspectFill"
                                        Source="{Binding Image}"
-                                       WidthRequest="125"
-                                       HeightRequest="125">
+                                       WidthRequest="50"
+                                       HeightRequest="50">
                                 </Image>
                                 <VerticalStackLayout Grid.Column="1"
                                                      Padding="10"

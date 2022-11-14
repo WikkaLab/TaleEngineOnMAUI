@@ -1,10 +1,12 @@
-# TaleEngine.App
+# TaleEngine on MAUI
 
 Una app para gestionar eventos de comunidad
 
 ## Surfeando en Android con MAUI
 
 Experimentando y aprendiendo sobre .NET MAUI
+
+![screenshot of dotnet MAUI app on Android with Visual Studio 2022 in the background](img/dotnetmaui.png)
 
 ### Enlaces de utilidad
 
@@ -17,12 +19,15 @@ Experimentando y aprendiendo sobre .NET MAUI
 - [Validation rules](https://luismts.com/password-validation-rules-xamarin-forms/)
 - [Azure DevOps for dotnet MAUI](https://devblogs.microsoft.com/dotnet/devops-for-dotnet-maui/)
 - [Unit Testing .NET MAUI Apps with xUnit](https://youtu.be/C9vIDLQwc7M)
+- About Linux
+    - [dotnet MAUI Linux GitHub repository](https://github.com/jsuarezruiz/maui-linux)
+    - [.NET MAUI: Soporte en Linux, por Javier Suarez en CampusMVP](https://youtu.be/6HZMaBjgoVs)
 
 ### Charlas sobre este repositorio
 
-- [Dyplofest 2022](./docs/dyplofest2022.md)
-- [XamarinMadrid, 28 de septiembre de 2022](./docs/xamarinmadrid2022sep.md)
-- [dotnetmalaga 2022, 12 de noviembre de 2022](./docs/dotnetmalaga2022.md)
+- [Dyplofest 2022](./doc/dyplofest2022.md)
+- [XamarinMadrid, 28 de septiembre de 2022](./doc/xamarinmadrid2022sep.md)
+- [dotnetmalaga 2022, 12 de noviembre de 2022](./doc/dotnetmalaga2022.md)
 
 ### Aprende más de .NET MAUI
 
